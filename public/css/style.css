@@ -1175,7 +1175,7 @@ body {
   color: #333;
   text-align: left;
   width: 100%;
-  padding-top: 100px; }
+  padding-top: 70px; }
 
 #yahoo_category_toggle {
   cursor: pointer; }
@@ -1202,7 +1202,7 @@ body {
 .breadcrumb {
   background-color: transparent; }
   .breadcrumb li {
-    font-size: 22px; }
+    font-size: 18px; }
 
 /* Override on Bootstrap...
 -------------------------------------*/

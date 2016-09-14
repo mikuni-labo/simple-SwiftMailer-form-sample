@@ -1,9 +1,10 @@
 ﻿<?= header('X-Frame-Options: SAMEORIGIN');// クリックジャッキング対策(同一生成元のみ許可) ?>
-<?php require_once ('./require_page.php');?>
+<?php require_once ('./require_page.php'); ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+	
 	<!-- Meta Data -->
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,47 +22,80 @@
 	
 </head>
 <body>
-
-	<!-- Global Navigation Header -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-			
-				<!-- Collapsed Hamburger -->
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
+	<header class="header">
+		<!-- Global Navigation Header -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					
+					<!-- Collapsed Hamburger -->
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+						<span class="sr-only">Toggle Navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+					<!-- Branding Image -->
+					<a class="navbar-brand" href="<?= HTTP_URL ?>"><?= SITE_NAME ?></a>
+				</div>
 				
-				<!-- Branding Image -->
-				<a class="navbar-brand" href="<?= HTTP_URL ?>"><?= SITE_NAME ?></a>
+				<div class="collapse navbar-collapse" id="app-navbar-collapse">
+					<!-- Left Side Of Navbar -->
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<span class="glyphicon glyphicon-user"></span>&nbsp;メニュー1&nbsp;<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー1</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー2</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー3</a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<span class="glyphicon glyphicon-blackboard"></span>&nbsp;メニュー2&nbsp;<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー1</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー2</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー3</a></li>
+							</ul>
+						</li>
+						
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<span class="glyphicon glyphicon-leaf"></span>&nbsp;メニュー3&nbsp;<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー1</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー2</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー3</a></li>
+							</ul>
+						</li>
+					</ul>
+					
+					<!-- Right Side Of Navbar -->
+					<ul class="nav navbar-nav navbar-right">
+						<!-- Authentication Links -->
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<span class="glyphicon glyphicon-home"></span>&nbsp;ゲストさん <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="<?= HTTP_URL ?>"><span class="glyphicon glyphicon-home"></span>&nbsp;ホーム</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-edit"></span>&nbsp;アカウント情報</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-cog"></span>&nbsp;設定</a></li>
+								<li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;ログアウト</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
-			
-			<div class="collapse navbar-collapse" id="app-navbar-collapse">
-				<!-- Left Side Of Navbar -->
-				<ul class="nav navbar-nav">
-					<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>&nbsp;メニュー1</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>&nbsp;メニュー2</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-blackboard"></span>&nbsp;メニュー3</a></li>
-				</ul>
-				
-				<!-- Right Side Of Navbar -->
-				<ul class="nav navbar-nav navbar-right">
-					<!-- Authentication Links -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-							<span class="glyphicon glyphicon-home"></span>&nbsp;ゲストさん</a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;ホーム</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-edit"></span>&nbsp;メニュー</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+		</nav>
+	</header>
 	
 	<!-- Contents -->
 	<section class="section">
@@ -99,11 +133,56 @@
 								</div>
 								
 								<div class="form-group">
-									<label class="col-md-4 control-label" for="email">E-Mail<span class="attention">*</span></label>
+									<label class="col-md-4 control-label">フリガナ<span class="attention">*</span></label>
+									<div class="col-md-3">
+										<input type="text" class="form-control" name="last_name_kana" required="required" value="" placeholder="セイ" />
+									</div>
+									<div class="col-md-3">
+										<input type="text" class="form-control" name="first_name_kana" required="required" value="" placeholder="カナ" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">年代</label>
+									<div class="col-md-6 form-control-static">
+										<select>
+											<?php foreach (Fixed::age() as $val): ?>
+												<option class="form-control" name="age" value="<?= $val ?>"><?= $val ?></option>
+											<?php endforeach;?>
+										</select>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">性別</label>
+									<div class="col-md-6 form-control-static">
+										<?php foreach (Fixed::gender() as $val): ?>
+											<input type="radio" name="age" value="<?= $val ?>" />&nbsp;<?= $val ?>&nbsp;&nbsp;&nbsp;
+										<?php endforeach;?>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">E-Mail<span class="attention">*</span></label>
 									<div class="col-md-6">
 										<div class="input-group">
 											<span class="input-group-addon">@</span>
 											<input type="email" class="form-control" name="email" required="required" value="" />
+										</div>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">電話番号</label>
+									<div class="input-group">
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="tel1" value="" />
+										</div>
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="tel2" value="" />
+										</div>
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="tel3" value="" />
 										</div>
 									</div>
 								</div>
@@ -116,8 +195,77 @@
 								</div>
 								
 								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト1</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text1" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト2</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text2" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト3</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text3" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト4</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text4" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト5</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text5" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト6</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text6" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキスト7</label>
+									<div class="col-md-6">
+										<input type="text" class="form-control" name="free_text7" value="" />
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキストエリア1</label>
+									<div class="col-md-6">
+										<textarea name="free_area1" class="form-control" rows="3" placeholder=""></textarea>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキストエリア2</label>
+									<div class="col-md-6">
+										<textarea name="free_area2" class="form-control" rows="3" placeholder=""></textarea>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">フリーテキストエリア3</label>
+									<div class="col-md-6">
+										<textarea name="free_area3" class="form-control" rows="3" placeholder=""></textarea>
+									</div>
+								</div>
+								
+								<div class="form-group">
 									<div class="col-md-6 col-md-offset-4">
-										<a href="javascript:history.back();" class="btn btn-success"><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp;前の画面に戻る</a>
 										<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-import"></span>&nbsp;登録</button>
 									</div>
 								</div>
