@@ -125,40 +125,43 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">お名前<span class="attention">*</span></label>
 									<div class="col-md-3">
-										<input type="text" class="form-control" name="last_name" required="required" value="" placeholder="姓" />
+										<input type="text" class="form-control" name="last_name" required="required" maxlength="255" value="" placeholder="姓" />
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control" name="first_name" required="required" value="" placeholder="名" />
+										<input type="text" class="form-control" name="first_name" required="required" maxlength="255" value="" placeholder="名" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリガナ<span class="attention">*</span></label>
 									<div class="col-md-3">
-										<input type="text" class="form-control" name="last_name_kana" required="required" value="" placeholder="セイ" />
+										<input type="text" class="form-control" name="last_name_kana" required="required" maxlength="255" value="" placeholder="セイ" />
 									</div>
 									<div class="col-md-3">
-										<input type="text" class="form-control" name="first_name_kana" required="required" value="" placeholder="カナ" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-md-4 control-label">年代</label>
-									<div class="col-md-6 form-control-static">
-										<select>
-											<?php foreach (Fixed::age() as $val): ?>
-												<option class="form-control" name="age" value="<?= $val ?>"><?= $val ?></option>
-											<?php endforeach;?>
-										</select>
+										<input type="text" class="form-control" name="first_name_kana" required="required" maxlength="255" value="" placeholder="カナ" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">性別</label>
 									<div class="col-md-6 form-control-static">
-										<?php foreach (Fixed::gender() as $val): ?>
-											<input type="radio" name="age" value="<?= $val ?>" />&nbsp;<?= $val ?>&nbsp;&nbsp;&nbsp;
-										<?php endforeach;?>
+										<label><input type="radio" name="gender" value="女性" />&nbsp;女性&nbsp;&nbsp;&nbsp;</label>
+										<label><input type="radio" name="gender" value="男性" />&nbsp;男性&nbsp;&nbsp;&nbsp;</label>
+									</div>
+								</div>
+								
+								<div class="form-group">
+									<label class="col-md-4 control-label">生年月日(西暦)</label>
+									<div class="input-group">
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="birth_y" value="" placeholder="YYYY" maxlength="4" />
+										</div>
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="birth_m" value="" placeholder="MM" maxlength="2" />
+										</div>
+										<div class="col-md-3">
+											<input type="tel" class="form-control" name="birth_d" value="" placeholder="DD" maxlength="2" />
+										</div>
 									</div>
 								</div>
 								
@@ -167,7 +170,7 @@
 									<div class="col-md-6">
 										<div class="input-group">
 											<span class="input-group-addon">@</span>
-											<input type="email" class="form-control" name="email" required="required" value="" />
+											<input type="email" class="form-control" name="email" required="required" maxlength="255" value="" />
 										</div>
 									</div>
 								</div>
@@ -176,13 +179,13 @@
 									<label class="col-md-4 control-label">電話番号</label>
 									<div class="input-group">
 										<div class="col-md-3">
-											<input type="tel" class="form-control" name="tel1" value="" />
+											<input type="tel" class="form-control" name="tel1" value="" placeholder="012" maxlength="5" />
 										</div>
 										<div class="col-md-3">
-											<input type="tel" class="form-control" name="tel2" value="" />
+											<input type="tel" class="form-control" name="tel2" value="" placeholder="3456" maxlength="5" />
 										</div>
 										<div class="col-md-3">
-											<input type="tel" class="form-control" name="tel3" value="" />
+											<input type="tel" class="form-control" name="tel3" value="" placeholder="7890" maxlength="5" />
 										</div>
 									</div>
 								</div>
@@ -190,77 +193,77 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">お問い合わせ内容<span class="attention">*</span></label>
 									<div class="col-md-6">
-										<textarea name="content" class="form-control" rows="5" placeholder=""></textarea>
+										<textarea name="content" class="form-control" rows="5" maxlength="5000" placeholder="5000文字まで入力できます。"></textarea>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト1</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text1" value="" />
+										<input type="text" class="form-control" name="free_text1" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト2</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text2" value="" />
+										<input type="text" class="form-control" name="free_text2" value="" maxlength="255" maxlength="" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト3</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text3" value="" />
+										<input type="text" class="form-control" name="free_text3" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト4</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text4" value="" />
+										<input type="text" class="form-control" name="free_text4" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト5</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text5" value="" />
+										<input type="text" class="form-control" name="free_text5" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト6</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text6" value="" />
+										<input type="text" class="form-control" name="free_text6" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキスト7</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" name="free_text7" value="" />
+										<input type="text" class="form-control" name="free_text7" value="" maxlength="255" placeholder="オプションとして利用してください。" />
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキストエリア1</label>
 									<div class="col-md-6">
-										<textarea name="free_area1" class="form-control" rows="3" placeholder=""></textarea>
+										<textarea name="free_area1" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキストエリア2</label>
 									<div class="col-md-6">
-										<textarea name="free_area2" class="form-control" rows="3" placeholder=""></textarea>
+										<textarea name="free_area2" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
 									</div>
 								</div>
 								
 								<div class="form-group">
 									<label class="col-md-4 control-label">フリーテキストエリア3</label>
 									<div class="col-md-6">
-										<textarea name="free_area3" class="form-control" rows="3" placeholder=""></textarea>
+										<textarea name="free_area3" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
 									</div>
 								</div>
 								
