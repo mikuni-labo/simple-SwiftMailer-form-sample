@@ -116,7 +116,7 @@
 				<div class="col-md-10 col-md-offset-1">
 					
 					<div class="panel panel-info">
-						<div class="panel-heading">ユーザー登録</div>
+						<div class="panel-heading">メールフォーム</div>
 						<div class="panel-body">
 						
 							<form class="form-horizontal" role="form" method="POST" action="sendmail.php">
@@ -269,7 +269,7 @@
 								
 								<div class="form-group">
 									<div class="col-md-6 col-md-offset-4">
-										<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-import"></span>&nbsp;登録</button>
+										<button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span>&nbsp;送信</button>
 									</div>
 								</div>
 							</form>
