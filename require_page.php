@@ -16,5 +16,5 @@ require_once (__DIR__.'/Lib/Fixed.php');
 
 class RequirePage
 {
-	//
+    //
 }
