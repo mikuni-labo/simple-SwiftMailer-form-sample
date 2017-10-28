@@ -41,8 +41,8 @@ define("MAIL_CC_ADDRESS", "");// cc@example.com
 define("MAIL_CC_NAME", "");// CC受信者名
 
 // BCC
-define("MAIL_BCC_ADDRESS", "");// bcc@example.com
-define("MAIL_BCC_NAME", "");// BCC受信者名
+define("MAIL_BCC_ADDRESS", "");// bcc@example.com（管理者へも同一メールを送信する場合はセットする）
+define("MAIL_BCC_NAME", "");// BCC受信者名（管理者へも同一メールを送信する場合はセットする）
 
 // 件名
 define("MAIL_SUBJECT", "");// お問い合わせありがとうございます。
