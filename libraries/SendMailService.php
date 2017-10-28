@@ -163,6 +163,9 @@ class SendMailService
 
         } catch (Exception $e) {
             // 例外処理はここで
+            if (DEBUG) {
+                var_dump($e->getMessage());exit;
+            }
 
             return false;
         }

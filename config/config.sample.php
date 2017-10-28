@@ -12,6 +12,7 @@
 define("SITE_NAME", "");
 define("HTTP_URL", "");// スラッシュ無し
 define("REDIRECT_URL", "");// スラッシュ無し
+define("DEBUG", false);// エラー時に処理を止めて画面表示するか（true or false）
 
 
 /**
