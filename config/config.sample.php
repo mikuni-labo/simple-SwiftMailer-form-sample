@@ -44,7 +44,7 @@ define("MAIL_BCC_ADDRESS", "");// bcc@example.com
 define("MAIL_BCC_NAME", "");// BCC受信者名
 
 // 件名
-define("MAIL_SUBJECT", "件名");// お問い合わせありがとうございます。
+define("MAIL_SUBJECT", "");// お問い合わせありがとうございます。
 
 
 /**

@@ -53,7 +53,7 @@ class SendMailService
      */
     public function isValid()
     {
-        if(! Filter::Email($this->params['email'])) {
+        if (! Filter::Email($this->params['email'])) {
             $this->errors['email'] = "E-Mailの入力形式が正しくありません。";
         }
 
@@ -67,83 +67,106 @@ class SendMailService
      */
     public function sendMail()
     {
-        $mailbody  = "お問い合わせ内容は以下です。\n\n";
-        $mailbody .= "◆ お名前: {$this->params['last_name']} {$this->params['first_name']}\n";
-        $mailbody .= "◆ フリガナ: {$this->params['last_name_kana']} {$this->params['first_name_kana']}\n";
-        $mailbody .= "◆ 性別： {$this->params['gender']}\n";
-        $mailbody .= "◆ 生年月日： {$this->params['birth_y']}-{$this->params['birth_m']}-{$this->params['birth_d']}\n";
-        $mailbody .= "◆ E-Mail: {$this->params['email']}\n";
-        $mailbody .= "◆ Tel： {$this->params['tel1']}-{$this->params['tel2']}-{$this->params['tel3']}\n";
-        $mailbody .= "◆ お問い合わせ内容： {$this->params['content']}\n";
+        $mailbody  = "お問い合わせ内容は以下です。\n";
+        $mailbody .= "\n◆ お名前: {$this->params['last_name']} {$this->params['first_name']}";
+        $mailbody .= "\n◆ フリガナ: {$this->params['last_name_kana']} {$this->params['first_name_kana']}";
+        $mailbody .= "\n◆ 性別： {$this->params['gender']}";
+        $mailbody .= "\n◆ 生年月日： {$this->params['birth_y']}-{$this->params['birth_m']}-{$this->params['birth_d']}";
+        $mailbody .= "\n◆ E-Mail: {$this->params['email']}";
+        $mailbody .= "\n◆ Tel： {$this->params['tel1']}-{$this->params['tel2']}-{$this->params['tel3']}";
+        $mailbody .= "\n◆ お問い合わせ内容： {$this->params['content']}";
 
-        if(!empty($this->params['free_text1']))
-            $mailbody .= "◆ フリーテキスト1： {$this->params['free_text1']}\n";
+        /**
+         * フリーテキストフィールド（1〜7）
+         */
+        for ($i = 1; $i <= 7; $i++) {
+            if (!empty($this->params["free_text{$i}"])) {
+                $mailbody .= "\n◆ フリーテキスト{$i}： {$this->params["free_text{$i}"]}";
+            }
+        }
 
-        if(!empty($this->params['free_text2']))
-            $mailbody .= "◆ フリーテキスト2： {$this->params['free_text2']}\n";
-
-        if(!empty($this->params['free_text3']))
-            $mailbody .= "◆ フリーテキスト3： {$this->params['free_text3']}\n";
-
-        if(!empty($this->params['free_text4']))
-            $mailbody .= "◆ フリーテキスト4： {$this->params['free_text4']}\n";
-
-        if(!empty($this->params['free_text5']))
-            $mailbody .= "◆ フリーテキスト5： {$this->params['free_text5']}\n";
-
-        if(!empty($this->params['free_text6']))
-            $mailbody .= "◆ フリーテキスト6： {$this->params['free_text6']}\n";
-
-        if(!empty($this->params['free_text7']))
-            $mailbody .= "◆ フリーテキスト7： {$this->params['free_text7']}\n";
-
-        if(!empty($this->params['free_area1']))
-            $mailbody .= "◆ フリーエリア1： {$this->params['free_area1']}\n";
-
-        if(!empty($this->params['free_area2']))
-            $mailbody .= "◆ フリーエリア2： {$this->params['free_area2']}\n";
-
-        if(!empty($this->params['free_area3']))
-            $mailbody .= "◆ フリーエリア3： {$this->params['free_area3']}\n";
-
-        $mailbody .= "\n";
+        /**
+         * フリーテキストエリア（1〜3）
+         */
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($this->params["free_area{$i}"])) {
+                $mailbody .= "\n◆ フリーエリア{$i}： {$this->params["free_area{$i}"]}";
+            }
+        }
 
         try {
-            // SMTPトランスポートを使用
-            // SMTPサーバはlocalhost(Poftfix)を使用
-            // 他サーバにある場合は、そのホスト名orIPアドレスを指定する
-            $transport = Swift_SmtpTransport::newInstance(SMTP_HOST, SMTP_PORT, SMTP_SECURITY)
-                        ->setUsername(AUTH_USER)
-                        ->setPassword(AUTH_PASS);
+            /**
+             * SMTPトランスポート設定
+             * デフォルトでlocalhost(Poftfix)、ポート25を使用
+             */
+            $transport = Swift_SmtpTransport::newInstance();
+
+            if (SMTP_HOST !== "") {
+                $transport->setHost(SMTP_HOST);
+            }
+
+            if (SMTP_PORT !== "") {
+                $transport->setPort(SMTP_PORT);
+            }
+
+            if (SMTP_SECURITY !== "") {
+                $transport->setEncryption(SMTP_SECURITY);
+            }
+
+            if (AUTH_USER !== "") {
+                $transport->setUsername(AUTH_USER);
+            }
+
+            if (AUTH_PASS !== "") {
+                $transport->setPassword(AUTH_PASS);
+            }
 
             // メーラークラスのインスタンスを作成
             $mailer = Swift_Mailer::newInstance($transport);
 
-            var_dump($transport);exit;
-
             // メッセージ作成
-            $message = Swift_Message::newInstance()
-                        ->setTo($this->params['email'], $this->params['last_name']. ' ' .$this->params['first_name'])
-                        ->setCc(MAIL_CC_ADDRESS, MAIL_CC_NAME)
-                        ->setBcc(MAIL_BCC_ADDRESS, MAIL_BCC_NAME)
-                        ->setReplyTo(MAIL_REPLY_TO_ADDRESS, MAIL_REPLY_TO_NAME)
-                        ->setFrom(array(
-                                MAIL_FROM_ADDRESS => MAIL_FROM_NAME,
-                        ))
-                        ->setSubject(MAIL_SUBJECT)
-                        ->setBody($mailbody);
+            $message = Swift_Message::newInstance();
+            $message->setTo(array(
+                $this->params['email'] => $this->params['last_name']. ' ' .$this->params['first_name'],
+            ));
 
-            // メール送信
-            $result = $mailer->send($message);
-        }
-        catch (Exception $e)
-        {
+            $message->setFrom(array(
+                MAIL_FROM_ADDRESS => MAIL_FROM_NAME,
+                // Add any more...
+            ));
+
+            $message->setSubject(MAIL_SUBJECT);
+            $message->setBody($mailbody);
+
+            if (MAIL_CC_ADDRESS !== "") {
+                $message->setCc(array(
+                    MAIL_CC_ADDRESS => MAIL_CC_NAME,
+                    // Add any more...
+                ));
+            }
+
+            if (MAIL_BCC_ADDRESS !== "") {
+                $message->setBcc(array(
+                    MAIL_BCC_ADDRESS => MAIL_BCC_NAME,
+                    // Add any more...
+                ));
+            }
+
+            if (MAIL_REPLY_TO_ADDRESS !== "") {
+                $message->setReplyTo(array(
+                    MAIL_REPLY_TO_ADDRESS => MAIL_REPLY_TO_NAME,
+                    // Add any more...
+                ));
+            }
+
+            return (bool) $mailer->send($message);
+
+        } catch (Exception $e) {
             // 例外処理はここで
-            //echo $e->getMessage();
-            $result = 0;
+
+            return false;
         }
 
-        return $result;
     }
 
     /**
