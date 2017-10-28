@@ -8,43 +8,44 @@
  |
  | @author Kuniyasu Wada
  |
-define("SITE_NAME", "");
-define("HTTP_URL", "");
-define("REDIRECT_URL", "");
-
-
-/**
- * メール関連
  */
-// 差出人 (差出人を変更するには正しいアカウント認証・設定が必要です)
-define("MAIL_FROM_ADDRESS", "sample@example.com");
-define("MAIL_FROM_NAME",    "FROM名");
-
-// CC
-define("MAIL_CC_ADDRESS", "sample@example.com");
-define("MAIL_CC_NAME",    "CC受信者名");
-
-// BCC
-define("MAIL_BCC_ADDRESS", "wada@n-di.co.jp");
-define("MAIL_BCC_NAME",    "BCC受信者名");
-
-// 返信先
-define("MAIL_REPLY_TO_ADDRESS", "sample@example.com");
-define("MAIL_REPLY_TO_NAME",    "返信先名");
-
-// 題名
-define("MAIL_SUBJECT", "お問い合わせありがとうございます。");
+define("SITE_NAME", "");
+define("HTTP_URL", "");// スラッシュ無し
+define("REDIRECT_URL", "");// スラッシュ無し
+define("DEBUG", false);// エラー時に処理を止めて画面表示するか（true or false）
 
 
 /**
  * 送信サーバ
  */
-define("SMTP_HOST", "example.com");
-define("SMTP_PORT", 465);
-define("SMTP_SECURITY", "ssl");
-define("AUTH_USER", "ID");
-define("AUTH_PASS", "PASSWORD");
+define("SMTP_HOST", "");// example.com
+define("SMTP_PORT", "");// 465
+define("SMTP_SECURITY", "");// ssl
+define("AUTH_USER", "");// SMTP USER ID
+define("AUTH_PASS", "");// SMTP USER PASSWORD
 
+
+/**
+ * メール関連
+ */
+// 差出人 (メールを送信するには差出人に正しいアカウント認証情報が必要です)
+define("MAIL_FROM_ADDRESS", "");// info@example.com
+define("MAIL_FROM_NAME", "");// 差出人名
+
+// 返信先
+define("MAIL_REPLY_TO_ADDRESS", "");// sample@example.com
+define("MAIL_REPLY_TO_NAME", "");// 返信先名
+
+// CC
+define("MAIL_CC_ADDRESS", "");// cc@example.com
+define("MAIL_CC_NAME", "");// CC受信者名
+
+// BCC
+define("MAIL_BCC_ADDRESS", "");// bcc@example.com（管理者へも同一メールを送信する場合はセットする）
+define("MAIL_BCC_NAME", "");// BCC受信者名（管理者へも同一メールを送信する場合はセットする）
+
+// 件名
+define("MAIL_SUBJECT", "");// お問い合わせありがとうございます。
 
 
 /**
