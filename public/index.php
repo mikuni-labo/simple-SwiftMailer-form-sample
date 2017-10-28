@@ -1,5 +1,5 @@
 ﻿<?= header('X-Frame-Options: SAMEORIGIN');// クリックジャッキング対策(同一生成元のみ許可) ?>
-<?php require_once ('../require.php'); // require.phpまでのパスを記述?>
+<?php require_once ('../require.php'); // require.phpまでのパスを記述 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
