@@ -1,25 +1,25 @@
 ﻿<?= header('X-Frame-Options: SAMEORIGIN');// クリックジャッキング対策(同一生成元のみ許可) ?>
-<?php require_once ('./require_page.php'); ?>
+<?php require_once ('../require.php'); // require.phpまでのパスを記述?>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    
+
     <!-- Meta Data -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title><?= SITE_NAME ?></title>
-    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
-    
+
     <!-- Styles -->
-    <link type="text/css" href="<?= HTTP_URL ?>/public/bootstrap/css/bootstrap-umi.min.css" rel="stylesheet">
-    <link type="text/css" href="<?= HTTP_URL ?>/public/css/style.css" rel="stylesheet" media="screen">
-    <!-- <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="/favicon.ico"> -->
-    
+    <link type="text/css" href="<?= HTTP_URL ?>/assets/vendor/bootstrap/css/bootstrap-3.3.6.min.css" rel="stylesheet">
+    <link type="text/css" href="<?= HTTP_URL ?>/assets/css/style.css" rel="stylesheet" media="screen">
+    <!-- <link type="image/vnd.microsoft.icon" rel="shortcut icon" href="<?= HTTP_URL ?>/favicon.ico"> -->
+
 </head>
 <body>
     <header class="header">
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    
+
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -35,11 +35,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    
+
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="<?= HTTP_URL ?>"><?= SITE_NAME ?></a>
                 </div>
-                
+
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
@@ -53,7 +53,7 @@
                                 <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー3</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <span class="glyphicon glyphicon-blackboard"></span>&nbsp;メニュー2&nbsp;<span class="caret"></span>
@@ -64,7 +64,7 @@
                                 <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;子メニュー3</a></li>
                             </ul>
                         </li>
-                        
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <span class="glyphicon glyphicon-leaf"></span>&nbsp;メニュー3&nbsp;<span class="caret"></span>
@@ -76,7 +76,7 @@
                             </ul>
                         </li>
                     </ul>
-                    
+
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -96,7 +96,7 @@
             </div>
         </nav>
     </header>
-    
+
     <!-- Contents -->
     <section class="section">
         <div class="container">
@@ -114,14 +114,14 @@
         <div class="container">
             <div class="row animated fadeIn">
                 <div class="col-md-10 col-md-offset-1">
-                    
+
                     <div class="panel panel-info">
                         <div class="panel-heading">メールフォーム</div>
                         <div class="panel-body">
-                        
+
                             <form class="form-horizontal" role="form" method="POST" action="sendmail.php">
                                 <input type="hidden" class="form-control" name="_token" required="required" value="<?php //$token ?>" />
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">お名前<span class="attention">*</span></label>
                                     <div class="col-md-3">
@@ -131,7 +131,7 @@
                                         <input type="text" class="form-control" name="first_name" required="required" maxlength="255" value="" placeholder="名" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリガナ<span class="attention">*</span></label>
                                     <div class="col-md-3">
@@ -141,15 +141,15 @@
                                         <input type="text" class="form-control" name="first_name_kana" required="required" maxlength="255" value="" placeholder="カナ" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">性別</label>
                                     <div class="col-md-6 form-control-static">
-                                        <label><input type="radio" name="gender" value="女性" />&nbsp;女性&nbsp;&nbsp;&nbsp;</label>
+                                        <label><input type="radio" name="gender" value="女性" checked/>&nbsp;女性&nbsp;&nbsp;&nbsp;</label>
                                         <label><input type="radio" name="gender" value="男性" />&nbsp;男性&nbsp;&nbsp;&nbsp;</label>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">生年月日(西暦)</label>
                                     <div class="input-group">
@@ -164,7 +164,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">E-Mail<span class="attention">*</span></label>
                                     <div class="col-md-6">
@@ -174,7 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">電話番号</label>
                                     <div class="input-group">
@@ -189,84 +189,84 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">お問い合わせ内容<span class="attention">*</span></label>
                                     <div class="col-md-6">
                                         <textarea name="content" class="form-control" rows="5" maxlength="5000" placeholder="5000文字まで入力できます。"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト1</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text1" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト2</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text2" value="" maxlength="255" maxlength="" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト3</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text3" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト4</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text4" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト5</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text5" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト6</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text6" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキスト7</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="free_text7" value="" maxlength="255" placeholder="オプションとして利用してください。" />
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキストエリア1</label>
                                     <div class="col-md-6">
                                         <textarea name="free_area1" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキストエリア2</label>
                                     <div class="col-md-6">
                                         <textarea name="free_area2" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label class="col-md-4 control-label">フリーテキストエリア3</label>
                                     <div class="col-md-6">
                                         <textarea name="free_area3" class="form-control" rows="5" maxlength="3000" placeholder="オプションとして利用してください。"></textarea>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-send"></span>&nbsp;送信</button>
@@ -279,18 +279,17 @@
             </div><!-- .row -->
         </div><!-- .container -->
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer text-center">
         <div class="container">
-            <small>&copy;&nbsp;<?= date('Y', time()) ?>&nbsp;<a href="<?= HTTP_URL ?>">和田</a>&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
+            <small>&copy;&nbsp;<?= date('Y', time()) ?>&nbsp;<a href="<?= HTTP_URL ?>"><?= SITE_NAME ?></a>&nbsp;All&nbsp;Rights&nbsp;Reserved.</small>
         </div>
     </footer>
-    
+
     <!-- Scripts -->
-    <script type="text/javascript" src="<?= HTTP_URL ?>/public/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="<?= HTTP_URL ?>/public/bootstrap/js/bootstrap-3.3.6.min.js"></script>
-    <script type="text/javascript" src="<?= HTTP_URL ?>/public/bootstrap/js/bootstrap-confirmation.min.js"></script>
-    
+    <script type="text/javascript" src="<?= HTTP_URL ?>/assets/vendor/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<?= HTTP_URL ?>/assets/vendor/bootstrap/js/bootstrap-3.3.6.min.js"></script>
+
 </body>
 </html>

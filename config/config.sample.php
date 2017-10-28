@@ -8,6 +8,7 @@
  |
  | @author Kuniyasu Wada
  |
+ */
 define("SITE_NAME", "");
 define("HTTP_URL", "");
 define("REDIRECT_URL", "");
@@ -16,21 +17,21 @@ define("REDIRECT_URL", "");
 /**
  * メール関連
  */
-// 差出人 (差出人を変更するには正しいアカウント認証・設定が必要です)
-define("MAIL_FROM_ADDRESS", "sample@example.com");
+// 差出人 (メールを送信するには正しいアカウント認証・設定が必要です)
+define("MAIL_FROM_ADDRESS", "info@example.com");
 define("MAIL_FROM_NAME",    "FROM名");
-
-// CC
-define("MAIL_CC_ADDRESS", "sample@example.com");
-define("MAIL_CC_NAME",    "CC受信者名");
-
-// BCC
-define("MAIL_BCC_ADDRESS", "wada@n-di.co.jp");
-define("MAIL_BCC_NAME",    "BCC受信者名");
 
 // 返信先
 define("MAIL_REPLY_TO_ADDRESS", "sample@example.com");
 define("MAIL_REPLY_TO_NAME",    "返信先名");
+
+// CC
+// define("MAIL_CC_ADDRESS", "cc@example.com");
+// define("MAIL_CC_NAME",    "CC受信者名");
+
+// BCC
+// define("MAIL_BCC_ADDRESS", "bcc@example.com");
+// define("MAIL_BCC_NAME",    "BCC受信者名");
 
 // 題名
 define("MAIL_SUBJECT", "お問い合わせありがとうございます。");
